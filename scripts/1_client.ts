@@ -1,6 +1,8 @@
 import { createPublicClient, formatEther, http } from "viem";
-import { mainnet } from "viem/chains";
+import { mainnet, sepolia } from "viem/chains";
 
+// A client provides an abstraction for a connection to the Ethereum Network.
+// It provides read-only access to the Blockchain and its status.
 // Connect to a public client (equivalent to "provider" in Ethers)
 const client = createPublicClient({
   chain: mainnet,

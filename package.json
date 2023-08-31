@@ -3,13 +3,10 @@
   "version": "1.0.0",
   "author": "https://github.com/carletex",
   "type": "module",
-  "scripts": {
-    "ts": "tsc && node dist/$1.js"
-  },
   "dependencies": {
     "viem": "^1.9.2"
   },
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "ts-node": "^10.9.1"
   }
 }

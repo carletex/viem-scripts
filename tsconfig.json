@@ -6,7 +6,9 @@
     "outDir": "./dist",
     "strict": true,
   },
-  "include": ["src/**/*.ts"],
+  "include": [
+    "scripts/**/*.ts"
+  ],
   "exclude": ["node_modules"],
   "ts-node": {
     "transpileOnly": true,

@@ -14,6 +14,6 @@ npm install
 
 3. Run the scripts
 ```bash
-ts-node src/{script-name}.ts
+ts-node scripts/{script-name}.ts
 ```
 

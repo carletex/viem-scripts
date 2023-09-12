@@ -2,6 +2,7 @@ import { createWalletClient, http, parseEther } from "viem";
 import { generatePrivateKey, privateKeyToAccount } from "viem/accounts";
 import { goerli } from "viem/chains";
 
+// Get the account from the .env file or generate a new random one
 const getAccount = async () => {
   let account;
   if (process.env.ACCOUNT_PK) {
@@ -21,6 +22,7 @@ const getAccount = async () => {
   return account;
 };
 
+// Instantiate a (goerli) wallet client. (equivalent to "signer" in Ethers)
 const wallet = createWalletClient({
   account: await getAccount(),
   chain: goerli,

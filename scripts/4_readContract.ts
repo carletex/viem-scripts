@@ -1,5 +1,5 @@
 import { mainnetDAI } from "../contracts/mainnetDAI";
-import { mainnetClient } from "./1_client";
+import { austinAddress, mainnetClient } from "./1_client";
 import { formatEther } from "viem";
 
 const totalSupply = await mainnetClient.readContract({
@@ -10,7 +10,6 @@ const totalSupply = await mainnetClient.readContract({
 
 console.log("The max supply of DAI is", formatEther(totalSupply));
 
-const austinAddress = await mainnetClient.getEnsAddress({ name: "atg.eth" });
 if (austinAddress) {
   const data = await mainnetClient.readContract({
     address: mainnetDAI.address,

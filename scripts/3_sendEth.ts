@@ -1,8 +1,6 @@
-import { mainnetClient } from "./1_client";
+import { austinAddress, mainnetClient } from "./1_client";
 import { goerliWallet } from "./2_wallet";
 import { parseEther } from "viem";
-
-const austinAddress = await mainnetClient.getEnsAddress({ name: "atg.eth" });
 
 if (austinAddress) {
   // Sending ETH on sepolia

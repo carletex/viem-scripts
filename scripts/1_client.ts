@@ -24,4 +24,4 @@ if (austinAddress) {
   console.log("austin balance", formatEther(austinBalance));
 }
 
-export { client as mainnetClient };
+export { client as mainnetClient, austinAddress };

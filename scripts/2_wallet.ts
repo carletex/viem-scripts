@@ -1,27 +1,30 @@
-import { createWalletClient, http } from "viem";
+import { createWalletClient, http, parseEther } from "viem";
 import { generatePrivateKey, privateKeyToAccount } from "viem/accounts";
-import { sepolia } from "viem/chains";
+import { goerli } from "viem/chains";
 
-let account;
-if (process.env.ACCOUNT_PK) {
-  const loadedPrivateKey = process.env.ACCOUNT_PK as `0x${string}`;
-  account = privateKeyToAccount(loadedPrivateKey);
-  console.log("Loaded private key from .env");
-  console.log("Loaded address:", account.address);
-} else {
-  const randomPrivateKey = generatePrivateKey();
-  account = privateKeyToAccount(randomPrivateKey);
-  console.log(
-    "Generated random private key (don't print this :D):",
-    randomPrivateKey
-  );
-  console.log("Generated address:", account.address);
-}
+const getAccount = async () => {
+  let account;
+  if (process.env.ACCOUNT_PK) {
+    const loadedPrivateKey = process.env.ACCOUNT_PK as `0x${string}`;
+    account = privateKeyToAccount(loadedPrivateKey);
+    console.log("Loaded private key from .env");
+    console.log("Loaded address:", account.address);
+  } else {
+    const randomPrivateKey = generatePrivateKey();
+    account = privateKeyToAccount(randomPrivateKey);
+    const envString = `ACCOUNT_PK=${randomPrivateKey}`;
+    await Bun.write(".env", envString);
+    console.log("Generated random private key (saved into .env):");
+    console.log("Generated address:", account.address);
+  }
+
+  return account;
+};
 
 const wallet = createWalletClient({
-  account,
-  chain: sepolia,
+  account: await getAccount(),
+  chain: goerli,
   transport: http(),
 });
 
-export { wallet };
+export { wallet as goerliWallet };

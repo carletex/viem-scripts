@@ -23,3 +23,5 @@ if (austinAddress) {
   const austinBalance = await client.getBalance({ address: austinAddress });
   console.log("austin balance", formatEther(austinBalance));
 }
+
+export { client as mainnetClient };

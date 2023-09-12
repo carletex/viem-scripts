@@ -5,5 +5,8 @@
   "type": "module",
   "dependencies": {
     "viem": "^1.9.2"
+  },
+  "devDependencies": {
+    "bun-types": "^1.0.1"
   }
 }

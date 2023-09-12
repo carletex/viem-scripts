@@ -1,4 +1,3 @@
-import "dotenv/config";
 import { createWalletClient, http } from "viem";
 import { generatePrivateKey, privateKeyToAccount } from "viem/accounts";
 import { sepolia } from "viem/chains";

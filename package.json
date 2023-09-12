@@ -4,10 +4,6 @@
   "author": "https://github.com/carletex",
   "type": "module",
   "dependencies": {
-    "dotenv": "^16.3.1",
     "viem": "^1.9.2"
-  },
-  "devDependencies": {
-    "ts-node": "^10.9.1"
   }
 }
